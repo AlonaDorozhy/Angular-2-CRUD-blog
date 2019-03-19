@@ -1,5 +1,9 @@
 # MyBlog
 
+to run you need to install:
+1. npm install firebase @angular/fire --save
+2. bootstrap
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
 
 ## Development server
