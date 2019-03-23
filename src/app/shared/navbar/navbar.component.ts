@@ -6,7 +6,7 @@ import {AuthService} from '../../core/auth.service'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  logoImg: any = "../img/logo.png";
   constructor(public auth: AuthService) { }
 
   ngOnInit() {

@@ -10,27 +10,23 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth'
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+import { PostsModule } from './posts/posts.module'
+import { RoutingModule } from './routing.module'
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CoreModule,
-    SharedModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule,
-    AngularFirestoreModule,
-    BrowserAnimationsModule
-
-
+    BrowserModule,
+    CoreModule,
+    SharedModule,
+    PostsModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
