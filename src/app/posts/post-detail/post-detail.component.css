@@ -3,3 +3,22 @@
     margin-top: 40px;
     border-left: 2px solid gray;
 }
+button{
+    background: #C0645A; 
+      width: 250px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid gray;
+}
+input{
+    width: 100%;
+    margin-top: 20px;
+     border-left: 2px solid grey;
+}
+.createPost{
+    border-left: 2px solid gray;
+    margin-top: 40px;
+}
+.main{
+    padding-left: 30px;
+}

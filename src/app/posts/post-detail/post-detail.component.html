@@ -1,5 +1,5 @@
-<ng-container *ngIf="post">
-  <div [hidden]="!editing">
+<div class="container createPost" *ngIf="post">
+  <div class="main" [hidden]="!editing">
 
     <h1>Edit Post</h1>
     <div>
@@ -12,11 +12,10 @@
     <br>
     <button (click)="updatePost()" >Save</button>
     <button (click)="editing=false" *ngIf="editing">Cancel</button>
-
   </div>
 
 
-  <div class="col-xs-12 col-md-4" [hidden]="editing">
+  <div class="col-xs-12 col-md-4 main" [hidden]="editing">
     <div class="postBlock">
       <img src="{{post.image}}" alt="{{post.title}}">
       <h2>{{post.title}}</h2>
@@ -37,4 +36,4 @@
 
   </div>
 
-</ng-container>
+</div>
