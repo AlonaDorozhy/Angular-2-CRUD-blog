@@ -1,17 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { NgModule } from '@angular/core'
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
-
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire'
+import { AngularFirestoreModule } from '@angular/fire/firestore'
+import { AngularFireStorageModule } from '@angular/fire/storage'
 import { AngularFireAuthModule } from '@angular/fire/auth'
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment'
 
+import { AppComponent } from './app.component'
+import { CoreModule } from './core/core.module'
+import { SharedModule } from './shared/shared.module'
 import { PostsModule } from './posts/posts.module'
 import { RoutingModule } from './routing.module'
 
@@ -23,6 +22,7 @@ import { RoutingModule } from './routing.module'
     AngularFireAuthModule,
     AngularFireStorageModule,
     BrowserModule,
+    BrowserAnimationsModule,
     CoreModule,
     SharedModule,
     PostsModule,

@@ -1,27 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a  routerLink="/blog" class="navbar-brand" href="#"><img class="logo" src="../../../img/logo1.png" /></a>
+  <div class="container"><a routerLink="/blog" class="navbar-brand" href="#"><img class="logo"
+        src="../../../img/logo1.png" /></a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#" routerLink="/blog">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="/dashboard">Dashboard</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="/dashboard">List</a>
-      </li>
-     
-    
-    </ul>
-    <form class="form-inline my-2 my-lg-0" *ngIf="auth.afAuth.authState | async as user; else showLogin">
-      <span> Hello {{user.displayName}}</span>
-      <button (click)="auth.logout()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    <ng-template #showLogin>
-      <button (click)="auth.login()" class="btn btn-light">Login with Google</button>
-    </ng-template>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" routerLink="/blog">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/dashboard">List</a>
+        </li>
 
+
+      </ul>
+      <form class="form-inline my-2 my-lg-0" *ngIf="auth.afAuth.authState | async as user; else showLogin">
+        <span> Hello {{user.displayName}}</span>
+        <button (click)="auth.logout()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <ng-template #showLogin>
+        <button (click)="auth.login()" class="btn btn-light">Login with Google</button>
+      </ng-template>
+    </div>
   </div>
 </nav>

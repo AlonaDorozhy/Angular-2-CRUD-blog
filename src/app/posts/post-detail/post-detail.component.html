@@ -1,3 +1,40 @@
-<p>
-  post-detail works!
-</p>
+<ng-container *ngIf="post">
+  <div [hidden]="!editing">
+
+    <h1>Edit Post</h1>
+    <div>
+      <input placeholder="Post title" [(ngModel)]="post.title" name="title">
+    </div>
+    <br>
+    <div>
+      <textarea placeholder="Post content" [(ngModel)]="post.content" name="content" rows="10"></textarea>
+    </div>
+    <br>
+    <button (click)="updatePost()" >Save</button>
+    <button (click)="editing=false" *ngIf="editing">Cancel</button>
+
+  </div>
+
+
+  <div class="col-xs-12 col-md-4" [hidden]="editing">
+    <div class="postBlock">
+      <img src="{{post.image}}" alt="{{post.title}}">
+      <h2>{{post.title}}</h2>
+      <p>
+        Posted by {{post.author}}
+        <br> {{post.published.toDate() | date: 'short'}}
+      </p>
+      <p>{{post.content}}</p>
+    </div>
+    <div *ngIf="auth.currentUserId === post.authorId">
+      <button (click)="editing=true">
+        edit
+      </button>
+      <button (click)="delete(post.id)">
+        delete
+      </button>
+    </div>
+
+  </div>
+
+</ng-container>
