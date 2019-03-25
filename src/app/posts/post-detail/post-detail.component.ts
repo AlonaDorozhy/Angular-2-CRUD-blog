@@ -13,7 +13,7 @@ import { AuthService } from '../../core/auth.service'
 export class PostDetailComponent implements OnInit {
   post: Post;
   editing: boolean = false;
-
+ 
 
   constructor(
     private route: ActivatedRoute,
@@ -35,7 +35,8 @@ export class PostDetailComponent implements OnInit {
   updatePost() {
     const formData = {
       title: this.post.title,
-      content: this.post.content
+      content: this.post.content,
+      image: this.post.image
     }
     const id = this.route.snapshot.paramMap.get('id');
     this.postService.update(id, formData);

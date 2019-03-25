@@ -6,7 +6,10 @@
       </h2>
       <input class="button" type="file" name="file" id="file" (change)="uploadImage($event)">
       <div [hidden]="!uploadPercent">
-        <!-- <div mode="determinate" value="{{ uploadPercent | async }}"></div> -->
+        <progress max="100" [value]="(uploadProgress | async)"></progress>
+<div class="result" *ngIf="uploadURL | async; let uploadSrc">
+  <a [href]="uploadSrc">You just uploaded this file!</a>
+</div>
       </div>
 
       <div [hidden]="!image">

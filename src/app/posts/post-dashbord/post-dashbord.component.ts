@@ -10,22 +10,20 @@ import { Observable } from 'rxjs';
   styleUrls: ['./post-dashbord.component.css']
 })
 export class PostDashbordComponent implements OnInit {
-  content: string
-  image: string
-  title: string
-
-  saving = 'Create Post'
-
   uploadPercent: Observable<number>
   downloadURL: Observable<string>
-
+  
+  title: string;
+  content: string;
+  image: string = null;
+  saving = 'Create Post';
 
 
   constructor(
     private auth: AuthService,
     private postService: PostService,
     private storage: AngularFireStorage
-) { }
+  ) { }
 
   ngOnInit() {
   }
@@ -48,16 +46,18 @@ export class PostDashbordComponent implements OnInit {
   }
 
   uploadImage(event) {
-    const file = event.target.files[0]
-    const path = `posts/${file.name}`
+    let file = event.target.files[0];
+    let path = `posts/${file.name}`;
     if (file.type.split('/')[0] !== 'image') {
       return alert('only image files')
     } else {
-      const task = this.storage.upload(path, file)
-      this.downloadURL = task.downloadURL()
+      let task = this.storage.upload(path, file);
+      let ref = this.storage.ref(path);
+      this.downloadURL = ref.getDownloadURL();
       this.uploadPercent = task.percentageChanges()
       console.log('Image Uploaded!')
-      this.downloadURL.subscribe(url => (this.image = url))
+      this.downloadURL.subscribe(url => (this.image = url));
+      
     }
   }
 }
