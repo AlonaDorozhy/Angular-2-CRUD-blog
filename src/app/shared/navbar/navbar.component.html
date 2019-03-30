@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-bg">
   <div class="container"><a routerLink="/blog" class="navbar-brand" href="#"><img class="logo"
-        src="../../../img/logo1.png" /></a>
+        src="../../../assets/img/logo.png" /></a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -10,15 +10,11 @@
         <li class="nav-item">
           <a class="nav-link" href="#" routerLink="/dashboard">Dashboard</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/dashboard">List</a>
-        </li>
-
 
       </ul>
       <form class="form-inline my-2 my-lg-0" *ngIf="auth.afAuth.authState | async as user; else showLogin">
         <span> Hello {{user.displayName}}</span>
-        <button (click)="auth.logout()" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <button (click)="auth.logout()" class="search btn btn-light" type="submit">Search</button>
       </form>
       <ng-template #showLogin>
         <button (click)="auth.login()" class="btn btn-light">Login with Google</button>

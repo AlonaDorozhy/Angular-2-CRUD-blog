@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/core/auth.service';
 import { PostService } from '../post.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-dashbord',
@@ -10,23 +11,24 @@ import { Observable } from 'rxjs';
   styleUrls: ['./post-dashbord.component.css']
 })
 export class PostDashbordComponent implements OnInit {
+  content: string
+  image: string
+  title: string
+
+  saving = 'Create Post'
+
   uploadPercent: Observable<number>
   downloadURL: Observable<string>
-  
-  title: string;
-  content: string;
-  image: string = null;
-  saving = 'Create Post';
-
 
   constructor(
     private auth: AuthService,
     private postService: PostService,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private router: Router
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
   createPost() {
     const postData = {
       author: this.auth.authState.displayName || this.auth.authState.email,
@@ -43,21 +45,24 @@ export class PostDashbordComponent implements OnInit {
 
     this.saving = 'Post Created!'
     setTimeout(() => (this.saving = 'Create Post'), 3000)
+      
+          this.router.navigate(['/blog']);
+      
   }
 
   uploadImage(event) {
-    let file = event.target.files[0];
-    let path = `posts/${file.name}`;
+    const file = event.target.files[0]
+    const path = `posts/${file.name}`
     if (file.type.split('/')[0] !== 'image') {
       return alert('only image files')
     } else {
-      let task = this.storage.upload(path, file);
+      const task = this.storage.upload(path, file)
       let ref = this.storage.ref(path);
-      this.downloadURL = ref.getDownloadURL();
+      this.downloadURL = ref.getDownloadURL()
       this.uploadPercent = task.percentageChanges()
-      console.log('Image Uploaded!')
-      this.downloadURL.subscribe(url => (this.image = url));
-      
+      console.log(this.downloadURL)
+      this.downloadURL.subscribe(url => (this.image = url))
     }
   }
+
 }
