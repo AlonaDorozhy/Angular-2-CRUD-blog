@@ -38,6 +38,8 @@ export class PostDetailComponent implements OnInit {
       content: this.post.content,
       image: this.post.image
     }
+
+    
     const id = this.route.snapshot.paramMap.get('id');
     this.postService.update(id, formData);
     this.editing = false

@@ -25,11 +25,12 @@ export class PostDashbordComponent implements OnInit {
     private auth: AuthService,
     private postService: PostService,
     private storage: AngularFireStorage,
+
     private router: Router,
-   
+
 
   ) { }
-  
+
   ngOnInit() { }
 
   createPost() {
@@ -56,7 +57,6 @@ export class PostDashbordComponent implements OnInit {
   uploadImage(event) {
 
     let file = event.target.files[0];
-    // let path = `img/${file.name}`;
     let path = `posts/${file.name}`;
     if (file.type.split('/')[0] !== 'image') {
       return alert('Add image');
@@ -70,11 +70,28 @@ export class PostDashbordComponent implements OnInit {
         finalize(() => {
           this.downloadURL = ref.getDownloadURL();
           this.downloadURL.subscribe(url => {
-            console.log(url);
+            this.image = url
+           
           });
         }
         )
       ).subscribe();
     }
   }
+
+
+  // uploadImage(event) {
+  //   const file = event.target.files[0]
+  //   const path = `posts/${file.name}`
+  //   if (file.type.split('/')[0] !== 'image') {
+  //     return alert('only image files')
+  //   } else {
+  //     const task = this.storage.upload(path, file)
+  //     this.downloadURL = task.downloadURL()
+  //     this.uploadPercent = task.percentageChanges()
+  //     console.log('Image Uploaded!')
+  //     this.downloadURL.subscribe(url => (this.image = url))
+  //   }
+  // }
+
 }
