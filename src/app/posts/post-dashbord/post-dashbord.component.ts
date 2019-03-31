@@ -4,6 +4,7 @@ import { PostService } from '../post.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-post-dashbord',
@@ -24,9 +25,11 @@ export class PostDashbordComponent implements OnInit {
     private auth: AuthService,
     private postService: PostService,
     private storage: AngularFireStorage,
-    private router: Router
-  ) { }
+    private router: Router,
+   
 
+  ) { }
+  
   ngOnInit() { }
 
   createPost() {
@@ -34,7 +37,7 @@ export class PostDashbordComponent implements OnInit {
       author: this.auth.authState.displayName || this.auth.authState.email,
       authorId: this.auth.currentUserId,
       content: this.content,
-      image: this.image || null,
+      image: this.image,
       published: new Date(),
       title: this.title
     }
@@ -45,24 +48,33 @@ export class PostDashbordComponent implements OnInit {
 
     this.saving = 'Post Created!'
     setTimeout(() => (this.saving = 'Create Post'), 3000)
-      
-          this.router.navigate(['/blog']);
-      
+
+    this.router.navigate(['/blog']);
+
   }
 
   uploadImage(event) {
-    const file = event.target.files[0]
-    const path = `posts/${file.name}`
+
+    let file = event.target.files[0];
+    // let path = `img/${file.name}`;
+    let path = `posts/${file.name}`;
     if (file.type.split('/')[0] !== 'image') {
-      return alert('only image files')
+      return alert('Add image');
     } else {
-      const task = this.storage.upload(path, file)
+
       let ref = this.storage.ref(path);
-      this.downloadURL = ref.getDownloadURL()
-      this.uploadPercent = task.percentageChanges()
-      console.log(this.downloadURL)
-      this.downloadURL.subscribe(url => (this.image = url))
+      let task = this.storage.upload(path, file);
+      this.uploadPercent = task.percentageChanges();
+      console.log('Success');
+      task.snapshotChanges().pipe(
+        finalize(() => {
+          this.downloadURL = ref.getDownloadURL();
+          this.downloadURL.subscribe(url => {
+            console.log(url);
+          });
+        }
+        )
+      ).subscribe();
     }
   }
-
 }

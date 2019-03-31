@@ -1,6 +1,7 @@
 <div class=" container">
   <div class="row createPost">
     <div class="col-md-5  col-sm-auto  main">
+      <img src="../../../assets/img/5.jpg">
       <h2>
         Create a Post
       </h2>
@@ -15,13 +16,20 @@
       <!-- <div [hidden]="!image">
         <img [src]="image || '//:0' ">
       </div> -->
-<input type="file" name="file" id="file" (change)="uploadImage($event)">
-<div [hidden]="!uploadPercent">
-  <progress mode="determinate" value="{{ uploadPercent | async }}"></progress>
-</div>
-<div [hidden]="!image">
-  <img [src]="image || '//:0' ">
-</div>
+    <div class="input-group mb-3">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03"
+          (change)="uploadImage($event)" accept=".png,.jpg" [(ngModel)]="image">
+        <label class="custom-file-label" for="inputGroupFile03">Add your image</label>
+      </div>
+    </div>
+    <div class="progress" [hidden]="!uploadPercent">
+      <progress mode="determinate" value="{{ uploadPercent | async }}"></progress>
+      {{ uploadPercent | async }}
+    </div>
+    <div [hidden]="!image">
+      <img [src]="image || '//:0'">
+    </div>
 
       <div>
         <input matInput placeholder="Post title" [(ngModel)]="title" name="title">

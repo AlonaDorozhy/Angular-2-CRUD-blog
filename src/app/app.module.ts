@@ -21,6 +21,7 @@ import { RoutingModule } from './routing.module'
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+    
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,
