@@ -47,7 +47,6 @@ export class PostDashbordComponent implements OnInit {
     this.content = ''
     this.image = ''
 
-    this.saving = 'Post Created!'
     setTimeout(() => (this.saving = 'Create Post'), 3000)
 
     this.router.navigate(['/blog']);
@@ -80,18 +79,6 @@ export class PostDashbordComponent implements OnInit {
   }
 
 
-  // uploadImage(event) {
-  //   const file = event.target.files[0]
-  //   const path = `posts/${file.name}`
-  //   if (file.type.split('/')[0] !== 'image') {
-  //     return alert('only image files')
-  //   } else {
-  //     const task = this.storage.upload(path, file)
-  //     this.downloadURL = task.downloadURL()
-  //     this.uploadPercent = task.percentageChanges()
-  //     console.log('Image Uploaded!')
-  //     this.downloadURL.subscribe(url => (this.image = url))
-  //   }
-  // }
+
 
 }
