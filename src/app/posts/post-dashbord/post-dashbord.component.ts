@@ -38,7 +38,7 @@ export class PostDashbordComponent implements OnInit {
       author: this.auth.authState.displayName || this.auth.authState.email,
       authorId: this.auth.currentUserId,
       content: this.content,
-      image: this.image,
+      image: this.image ,
       published: new Date(),
       title: this.title
     }
@@ -47,6 +47,7 @@ export class PostDashbordComponent implements OnInit {
     this.content = ''
     this.image = ''
 
+    this.saving = 'Post Created!'
     setTimeout(() => (this.saving = 'Create Post'), 3000)
 
     this.router.navigate(['/blog']);

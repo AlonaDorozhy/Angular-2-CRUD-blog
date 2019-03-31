@@ -1,21 +1,25 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-sm-6 postBlock" *ngFor="let post of posts | async">
-      <div routerLink="{{post.id}}">
-
-        <h2>{{post.title}}</h2>
-        <img class="image"  src="{{post.image}}" alt="{{post.title}}">
-
-        <p>
-
-          Posted by {{post.author}}<br> {{post.published.toDate() | date: 'short'}}
-        </p>
-        <div *ngIf="auth.currentUserId === post.authorId">
-          <button (click)="delete(post.id)">
-            delete
-          </button>
+      <div class="main" routerLink="{{post.id}}">
+        <div class="title">
+          <img class="image" src="{{post.image}}" alt="{{post.title}}">
+          <h2>{{post.title}}</h2>
+        </div>
+        <div class="block">
+              <p class="text">
+                {{ (post.content.length>6)? (post.content | slice:0:50)+'...':(post.content)}}
+              </p>
+              <p class="author">
+                Posted by {{post.author}}<br> {{post.published.toDate() | date: 'short'}}
+              </p>       
+              <div *ngIf="auth.currentUserId === post.authorId">
+                  <button class="delete" (click)="delete(post.id)">
+                    delete
+                  </button>
+              </div>
         </div>
       </div>
-
     </div>
   </div>
+</div>

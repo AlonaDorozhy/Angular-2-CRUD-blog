@@ -1,5 +1,5 @@
 .navbar-bg{
-    background-color: rgb(31, 28, 28);
+    background-color: rgb(85, 136, 139);
     color: rgb(233, 240, 247);
     
 }
@@ -11,4 +11,7 @@
 }
 .logo{
     width:65px; 
+}
+.block{
+    
 }
