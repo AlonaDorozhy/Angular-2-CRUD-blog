@@ -1,24 +1,74 @@
-.postBlock{
+.postBlock {
     display: block;
     margin-top: 40px;
     border-left: 2px solid gray;
 }
-button{
-    background: #C0645A; 
-      width: 250px;
-      height: 40px;
-      border-radius: 10px;
-      border: 1px solid gray;
+
+button {
+    background: #C0645A;
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid gray;
 }
-.input{
+
+.input {
     width: 100%;
     margin-top: 20px;
-     border-left: 2px solid grey;
 }
-.createPost{
+
+input {
+    border-radius: 5px;
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid grey;
+    font-size: 20px;
+}
+
+textarea {
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid grey;
+    font-size: 20px;
+}
+
+.createPost {
     border-left: 2px solid gray;
     margin-top: 40px;
 }
-.main{
+
+.block {}
+
+.main {
     padding-left: 30px;
+    background: linear-gradient(to right, rgba(112, 212, 170, 1) 0%, rgba(162, 227, 199, 1) 17%, rgba(167, 229, 203, 1) 19%, rgba(255, 255, 255, 1) 49%);
+}
+
+.hidden {
+    background: linear-gradient(to right, rgba(112, 212, 170, 1) 0%, rgba(162, 227, 199, 1) 17%, rgba(167, 229, 203, 1) 19%, rgba(255, 255, 255, 1) 49%);
+}
+
+.head {
+    text-align: center;
+}
+
+.edit {
+    font-size: 27px;
+    border-radius: 15px;
+    width: 100px;
+    background-color: rgb(70, 204, 159);
+    color: white;
+    margin: 0px 40px;
+}
+
+.delete {
+    font-size: 27px;
+    border-radius: 15px;
+    width: 100px;
+    background-color: coral;
+    color: white;
+}
+
+.button {
+    text-align: end;
 }

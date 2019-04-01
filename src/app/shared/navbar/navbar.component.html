@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-bg">
-  <div class="container"><a routerLink="/blog" class="navbar-brand" href="#"><img class="logo"
-        src="../../../assets/img/think.jpg" /></a>
+  <div class="container"><a routerLink="/blog" class="navbar-brand" href="#">
+    <img class="logo"src="../../../assets/img/log.png" /></a>
+        <div class="d-block d-sm-none">
+<a class="nav-link " href="#" routerLink="/dashboard">Create new post</a></div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -8,10 +10,12 @@
           <a class="nav-link" href="#" routerLink="/blog">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/dashboard">Dashboard</a>
+          <a class="nav-link" href="#" routerLink="/dashboard">Create new post</a>
         </li>
 
       </ul>
+
+
       <form class="form-inline my-2 my-lg-0" *ngIf="auth.afAuth.authState | async as user; else showLogin">
         <span> Hello {{user.displayName}}</span>
         <button (click)="auth.logout()" class="search btn btn-light" type="submit">Search</button>

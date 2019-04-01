@@ -1,17 +1,21 @@
-.navbar-bg{
+.navbar-bg {
     background-color: rgb(85, 136, 139);
     color: rgb(233, 240, 247);
-    
 }
-.nav-link{
+
+.nav-link {
     color: rgb(233, 240, 247);
 }
-.search{
+
+.nav-link:hover{
+color: coral;
+} 
+.search {
     margin-left: 20px;
 }
-.logo{
-    width:65px; 
+
+.logo {
+    width: 65px;
 }
-.block{
-    
-}
+
+.block {}

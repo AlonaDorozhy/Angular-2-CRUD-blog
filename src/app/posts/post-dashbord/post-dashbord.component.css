@@ -1,33 +1,79 @@
-.createPost{
+.createPost {
     border-left: 2px solid gray;
     margin-top: 40px;
 }
-.main{
-    padding-left: 30px;
+
+.createPost h2{
+text-align: center;
 }
-input{
+.block {
+    padding-left: 40px;
+    background: linear-gradient(to right, rgba(112, 212, 170, 1) 0%, rgba(162, 227, 199, 1) 17%, rgba(167, 229, 203, 1) 19%, rgba(255, 255, 255, 1) 49%);
+}
+
+input {
+    border-radius: 5px;
     width: 100%;
-    margin-top: 20px;
-     border-left: 2px solid grey;
+    margin: 20px 0;
+    border: 1px solid grey;
+    font-size: 20px;
 }
-textarea{
+
+textarea {
+    border-radius: 5px;
     width: 100%;
-    border-left: 2px solid grey;
+    border: 1px solid grey;
+    font-size: 20px;
 }
-input.button{
+
+input.button {
     background: #C0645A;
     width: 300px;
     border-radius: 10px;
 }
-button{
-    background: #C0645A; 
-      width: 250px;
-      height: 40px;
-      border-radius: 10px;
-      border: 1px solid gray;
+
+button {
+    font-size: 27px;
+    border-radius: 15px;
+    background-color: rgb(70, 204, 159);
+    color: white;
+    margin: 0px 40px;
+    border: 1px solid grey;
 }
-h2{
+
+.button {
+    align-content: flex-end;
+}
+
+h2 {
     font-size: 55px;
     color: rgb(63, 61, 61);
-    
+}
+
+.edit {
+    font-size: 27px;
+    border-radius: 15px;
+    width: 100px;
+    background-color: rgb(70, 204, 159);
+    color: white;
+    margin: 0px 40px;
+}
+
+.delete {
+    font-size: 27px;
+    border-radius: 15px;
+    background-color: coral;
+    color: white;
+}
+
+.button {
+    text-align: end;
+}
+
+.back {
+    font-size: 27px;
+    border-radius: 15px;
+    margin-top: 15px;
+    background-color: coral;
+    color: white;
 }
