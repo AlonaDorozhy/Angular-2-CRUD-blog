@@ -1,6 +1,13 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-5 col-sm-11 postBlock" *ngFor="let post of posts | async">
+   
+<ul>
+  <li *ngFor="let post of posts | async; trackBy: author">
+    {{post.author}}
+  </li>
+</ul>
+    <div class=" col-md-4  col-sm-11 postBlock" *ngFor="let post of posts | async">
+     
       <div class="main" routerLink="{{post.id}}">
       <div class="block">
          <div class="title">
@@ -19,8 +26,9 @@
                     delete
                   </button>
               </div>
+              </div>
         </div>
-      </div>
+   
     </div>
   </div>
 </div>

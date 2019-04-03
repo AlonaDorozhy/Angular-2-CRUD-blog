@@ -1,8 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-bg">
   <div class="container"><a routerLink="/blog" class="navbar-brand" href="#">
-    <img class="logo"src="../../../assets/img/log.png" /></a>
-        <div class="d-block d-sm-none">
-<a class="nav-link " href="#" routerLink="/dashboard">Create new post</a></div>
+      <img class="logo" src="../../../assets/img/log.png" /></a>
+    <div class="d-block d-sm-none">
+      <a class="nav-link " href="#" routerLink="/dashboard">Create new post</a>
+
+
+    </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -15,10 +18,21 @@
 
       </ul>
 
-
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Our authors
+        </button>
+        <div  *ngFor="let post of posts | async author"  class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" ><a> {{post.author}}</a></a>
+      
+        </div>
+        
+      </div>
+    
       <form class="form-inline my-2 my-lg-0" *ngIf="auth.afAuth.authState | async as user; else showLogin">
         <span> Hello {{user.displayName}}</span>
-        <button (click)="auth.logout()" class="search btn btn-light" type="submit">Search</button>
+        <button (click)="auth.logout()" class="search btn btn-light" type="submit">Log Out</button>
       </form>
       <ng-template #showLogin>
         <button (click)="auth.login()" class="btn btn-light">Login with Google</button>

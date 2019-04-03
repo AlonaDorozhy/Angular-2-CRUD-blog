@@ -1,12 +1,14 @@
-<div class="container createPost" *ngIf="post">
-  <div class="col-md-6 hidden" [hidden]="!editing">
+<div class="container-fluid">
+  <button class="backMain" [routerLink]="['/blog']" routerLinkActive="router-link-active">Main page</button>
+  <div class="container createPost" *ngIf="post">
+    <div class="col-md-6 hidden" [hidden]="!editing">
 
-    <h1>Edit Post</h1>
+      <h1>Edit Post</h1>
 
       <div class="input-group mb-3">
         <div class="custom-file">
           <input type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03"
-            (change)="uploadImage($event)" accept=".png,.jpg, .gif" [(ngModel)]="post.image" >
+            (change)="uploadImage($event)" accept=".png,.jpg, .gif" [(ngModel)]="post.image">
           <label class="custom-file-label" for="inputGroupFile03">Add your image</label>
         </div>
       </div>
@@ -18,46 +20,47 @@
         <img [src]="image || '//:0'">
       </div>
 
-    
-          <br>
-          <div>
-            <input class="input" placeholder="Post title" [(ngModel)]="post.title" name="title">
-          </div>
-            <br>
-            <div>
-              <textarea class="input" placeholder="Post content" [(ngModel)]="post.content" name="content" rows="10"></textarea>
-            </div>
-            <br>
-            <div class="button">
-            <button  class="edit" (click)="updatePost()">Save</button>
-            <button class="delete" (click)="editing=false" *ngIf="editing">Cancel</button>
-          </div>
-  </div>
-
-
-  <div class="col-xs-12 col-md-6 main" [hidden]="editing">
-    <div class="">
-    <div class="head">
-      <img src="{{post.image}}" alt="{{post.title}}">
-      <h2>{{post.title}}</h2>
+      <br>
+      <div>
+        <input class="input" placeholder="Post title" [(ngModel)]="post.title" name="title">
       </div>
-     
-      <p>{{post.content}}</p>
-
-      <p>
-        Posted by {{post.author}}
-        <br> {{post.published.toDate() | date: 'short'}}
-      </p>
+      <br>
+      <div>
+        <textarea class="input" placeholder="Post content" [(ngModel)]="post.content" name="content"
+          rows="10"></textarea>
+      </div>
+      <br>
+      <div class="button">
+        <button class="edit" (click)="updatePost()">Save</button>
+        <button class="delete" (click)="editing=false" *ngIf="editing">Cancel</button>
+      </div>
     </div>
-    <div class="button" *ngIf="auth.currentUserId === post.authorId">
-      <button  class="edit" (click)="editing=true">
-        edit
-      </button>
-      <button class="delete" (click)="delete(post.id)">
-        delete
-      </button>
+    <div class="col-xs-12 col-md-6 main" [hidden]="editing">
+
+      <div class="">
+        <div class="head">
+
+          <img src="{{post.image}}" alt="{{post.title}}">
+          <h2>{{post.title}}</h2>
+        </div>
+
+        <p>{{post.content}}</p>
+
+        <p>
+          Posted by {{post.author}}
+          <br> {{post.published.toDate() | date: 'short'}}
+        </p>
+      </div>
+      <div class="button" *ngIf="auth.currentUserId === post.authorId">
+        <button class="edit" (click)="editing=true">
+          edit
+        </button>
+        <button class="delete" (click)="delete(post.id)">
+          delete
+        </button>
+      </div>
+
     </div>
 
   </div>
-
 </div>

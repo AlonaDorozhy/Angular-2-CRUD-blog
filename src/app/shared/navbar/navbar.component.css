@@ -1,5 +1,5 @@
 .navbar-bg {
-    background-color: rgb(85, 136, 139);
+    background-color: rgba(147, 206, 222, 1);
     color: rgb(233, 240, 247);
 }
 
@@ -7,9 +7,10 @@
     color: rgb(233, 240, 247);
 }
 
-.nav-link:hover{
-color: coral;
-} 
+.nav-link:hover {
+    color: coral
+}
+
 .search {
     margin-left: 20px;
 }

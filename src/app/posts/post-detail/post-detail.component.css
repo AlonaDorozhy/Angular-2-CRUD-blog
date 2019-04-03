@@ -72,3 +72,17 @@ textarea {
 .button {
     text-align: end;
 }
+
+.backMain {
+    margin-top: 25px;
+    margin-left: 20px;
+    font-size: 20px;
+    width: 125px;
+    border-radius: 15px;
+    background-color: rgba(147, 206, 222, 1);
+    color: white;
+}
+
+.container{
+    margin-top: -40px;
+}
